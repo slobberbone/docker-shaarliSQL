@@ -12,6 +12,9 @@ repository.
 Production:
 - [`latest`](shaarli/README.md)
 
+Development:
+- [`dev`](shaarli-dev/README.md)
+
 ## Docker usage
 ### Basics
 Install [Docker](https://www.docker.com/), by following the instruction relevant
