@@ -3,5 +3,9 @@
 - [PHP5-FPM](http://php-fpm.org/)
 - [Nginx](http://nginx.org/)
 - [Shaarli](https://github.com/shaarli/Shaarli)
-- [Git](http://git-scm.com/)
-- [Nano](http://www.nano-editor.org/)
+
+### Development tools
+- [composer](https://getcomposer.org/)
+- [git](http://git-scm.com/)
+- [nano](http://www.nano-editor.org/)
+- [vim-nox](http://www.vim.org/)
