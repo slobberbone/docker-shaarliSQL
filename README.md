@@ -1,4 +1,5 @@
 # docker-shaarli
+[![Docker repository](https://img.shields.io/docker/pulls/shaarli/shaarli.svg?style=plastic)](https://hub.docker.com/r/shaarli/shaarli/)
 [![Join the chat at https://gitter.im/shaarli/Shaarli](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/shaarli/Shaarli)
 
 [Shaarli](https://github.com/shaarli/Shaarli) Dockerfiles for production and
