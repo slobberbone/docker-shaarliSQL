@@ -9,8 +9,8 @@ COPY supervised.conf /etc/supervisor/conf.d/supervised.conf
 
 WORKDIR /var/www
 RUN rm -rf html \
-    && curl -L https://github.com/shaarli/Shaarli/archive/master.tar.gz | tar xvzf - \
-    && mv Shaarli-master shaarli \
+    && curl -L https://github.com/shaarli/Shaarli/archive/stable.tar.gz | tar xvzf - \
+    && mv Shaarli-stable shaarli \
     && chown -R www-data:www-data shaarli
 
 VOLUME /var/www/shaarli/data
