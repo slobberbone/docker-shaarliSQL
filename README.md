@@ -1,6 +1,11 @@
 # docker-shaarliSQL
 [![Docker repository](https://img.shields.io/docker/pulls/shaarli/shaarli.svg?style=plastic)](https://hub.docker.com/r/slobberbone/shaarliSQL/)
 
+## ShaarliSQL
+[ShaarliSQL](http://git.gorgones.net/daniel.douat/shaarliSQL) is based on [Shaarli](http://sebsauvage.net/wiki/doku.php?id=php:shaarli).
+
+ShaarliSQL, is a personal, minimalist, super-fast, with-database delicious clone.
+
 
 ## DockerHub repository
 The images can be found in the [`slobberbone/shaarliSQL`](https://hub.docker.com/r/slobberbone/shaarliSQL/)
