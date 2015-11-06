@@ -15,13 +15,13 @@ COPY phpinfo.php /var/www/index.php
 
 WORKDIR /var/www
 RUN rm -rf html \
-    && git clone https://github.com/shaarli/Shaarli.git shaarli \
+    && git clone http://git.gorgones.net/daniel.douat/shaarliSQL.git shaarli \
     && chown -R www-data:www-data .
 
 WORKDIR /var/www/shaarli
 RUN composer install
 
-VOLUME /var/www/shaarli/data
+VOLUME /var/www/shaarli
 
 EXPOSE 80
 
