@@ -8,7 +8,7 @@ ShaarliSQL, is a personal, minimalist, super-fast, with-database delicious clone
 
 
 ## DockerHub repository
-The images can be found in the [`slobberbone/shaarliSQL`](https://hub.docker.com/r/slobberbone/shaarliSQL/)
+The images can be found in the [`slobberbone/shaarlisql`](https://hub.docker.com/r/slobberbone/shaarlisql/)
 repository.
 
 ## Tags
@@ -25,11 +25,11 @@ to your OS / distribution, and start the service.
 
 ### Run!
 #### Get the ShaarliSQL image
-    $ docker pull slobberbone/shaarliSQL
+    $ docker pull slobberbone/shaarlisql
 
 
 #### Create and start a new container from the image
-    $ docker run -p 8000:80 slobberbone/shaarliSQL -v /a_directory:/var/www/html --link mysql-container:mysql
+    $ docker run -p 8000:80 slobberbone/shaarlisql -v /a_directory:/var/www/html --link mysql-container:mysql
     
 #### Use Mysql link container
 
