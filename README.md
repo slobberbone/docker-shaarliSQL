@@ -24,8 +24,17 @@ to your OS / distribution, and start the service.
 
 
 #### Create and start a new container from the image
+    $ docker run -p 8000:80 slobberbone/shaarliSQL -v /a_directory:/var/www/html --link mysql-container:mysql
+    
+#### Use Mysql link container
 
-    $ docker run -p 8000:80 slobberbone/shaarliSQL -v /a_directory:/var/www/html
+Some o environnement variable are shared with ShaarliSQL container, you can use it in the configuraiton screen (example):
+MYSQL_PORT_3306_TCP_PORT=3306
+MYSQL_PORT_3306_TCP=tcp://172.17.0.2:3306
+MYSQL_PORT_3306_TCP_PROTO=tcp
+MYSQL_NAME=/mysql-container/mysql
+MYSQL_PORT_3306_TCP_ADDR=172.17.0.2
+MYSQL_PORT=tcp://172.17.0.2:3306
 
 ## Resources
 ### Docker
