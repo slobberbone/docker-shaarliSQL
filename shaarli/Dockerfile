@@ -9,7 +9,7 @@ COPY supervised.conf /etc/supervisor/conf.d/supervised.conf
 
 WORKDIR /var/www
 RUN rm -rf html \
-    && curl -L http://git.gorgones.net/daniel.douat/shaarliSQL/repository/archive.zip && unzip archive.zip \
+    && curl -L http://git.gorgones.net/daniel.douat/shaarliSQL/repository/archive.zip > archive.zip && unzip archive.zip \
     && mv shaarliSQL.git shaarli \
     && chown -R www-data:www-data shaarli
 
