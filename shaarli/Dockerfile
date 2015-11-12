@@ -2,7 +2,7 @@ FROM debian:jessie
 MAINTAINER VirtualTam <virtualtam@flibidi.net>
 
 RUN apt-get update \
-    && apt-get install -y curl unzip nginx-light php5-fpm php5-gd supervisor
+    && apt-get install -y curl unzip nginx-light php5-fpm php5-mysql php5-gd supervisor
 
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY supervised.conf /etc/supervisor/conf.d/supervised.conf
