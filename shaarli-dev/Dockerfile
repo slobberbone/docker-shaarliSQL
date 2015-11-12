@@ -13,15 +13,14 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY supervised.conf /etc/supervisor/conf.d/supervised.conf
 COPY phpinfo.php /var/www/index.php
 
-WORKDIR /var/www
-RUN rm -rf html \
-    && git clone http://git.gorgones.net/daniel.douat/shaarliSQL.git shaarli \
+WORKDIR /var/www/html
+RUN git clone http://git.gorgones.net/daniel.douat/shaarliSQL.git shaarli \
     && chown -R www-data:www-data .
 
-WORKDIR /var/www/shaarli
+WORKDIR /var/www/html/shaarli
 RUN composer install
 
-VOLUME /var/www/shaarli
+VOLUME /var/www/html
 
 EXPOSE 80
 
