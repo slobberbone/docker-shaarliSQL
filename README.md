@@ -1,14 +1,10 @@
-# docker-shaarliSQL
-[![Docker repository](https://img.shields.io/docker/pulls/shaarli/shaarli.svg?style=plastic)](https://hub.docker.com/r/slobberbone/shaarliSQL/)
-
-## ShaarliSQL
+# ShaarliSQL
 [ShaarliSQL](http://git.gorgones.net/daniel.douat/shaarliSQL) is based on [Shaarli](http://sebsauvage.net/wiki/doku.php?id=php:shaarli).
 
 ShaarliSQL, is a personal, minimalist, super-fast, with-database delicious clone.
 
-
 ## DockerHub repository
-The images can be found in the [`slobberbone/shaarlisql`](https://hub.docker.com/r/slobberbone/shaarlisql/)
+The images can be found in the [`slobberbone/docker-shaarlisql`](https://hub.docker.com/r/slobberbone/docker-shaarlisql/)
 repository.
 
 ## Tags
@@ -18,20 +14,20 @@ Production:
 Development:
 - [`dev`](shaarli-dev/README.md)
 
-## Docker usage
-### Basics
-Install [Docker](https://www.docker.com/), by following the instruction relevant
-to your OS / distribution, and start the service.
+## Port
 
-### Run!
-#### Get the ShaarliSQL image
-    $ docker pull slobberbone/shaarlisql
+This image expose port 80.
 
+## Volume
 
-#### Create and start a new container from the image
-    $ docker run -p 8000:80 slobberbone/shaarlisql -v /a_directory:/var/www/html --link mysql-container:mysql
+You can save your shaarliSQL directory by mapping them to the volume /var/www/html.
+
+## Usage
+```
+docker run -d -v /*your_shaarli_location*:/var/www/html -p 8031:80 slobberbone/docker-shaarlisql  --link mysql-container:mysql
+```
     
-#### Use Mysql link container
+### Use Mysql link container
 
 Some o environnement variable are shared with ShaarliSQL container, you can use it in the configuraiton screen (example):
 MYSQL_PORT_3306_TCP_PORT=3306
@@ -41,23 +37,17 @@ MYSQL_NAME=/mysql-container/mysql
 MYSQL_PORT_3306_TCP_ADDR=172.17.0.2
 MYSQL_PORT=tcp://172.17.0.2:3306
 
-## Resources
-### Docker
-- [Dockerfile reference](https://docs.docker.com/reference/builder/)
-- [Dockerfile best practices](https://docs.docker.com/articles/dockerfile_best-practices/)
-- [Volumes](https://docs.docker.com/userguide/dockervolumes/)
+## Nginx redirection for OMV
 
-### DockerHub
-- [Repositories](https://docs.docker.com/userguide/dockerrepos/)
-- [Teams and organizations](https://docs.docker.com/docker-hub/orgs/)
-- [GitHub automated build](https://docs.docker.com/docker-hub/github/)
-
-### Service management
-- [Using supervisord](https://docs.docker.com/articles/using_supervisord/)
-- [Nginx in the foreground](http://nginx.org/en/docs/ngx_core_module.html#daemon)
-- [supervisord](http://supervisord.org/)
-
-### Host configuration
-- [Server requirements](https://github.com/shaarli/Shaarli/wiki/Server-requirements)
-- [Server configuration](https://github.com/shaarli/Shaarli/wiki/Server-configuration)
-- [Shaarli configuration](https://github.com/shaarli/Shaarli/wiki/Shaarli-configuration)
+Create a configuration file in /etc/nginx/openmediavault-webgui.d/ named shaarli.conf wich contains :
+```
+  location /shaarli {
+         proxy_pass         http://localhost:8031/shaarli;
+         proxy_set_header   Host localhost:8031;
+          proxy_redirect    default;
+  }
+```
+Then reload nginx configuration :
+```
+service nginx reload
+```
