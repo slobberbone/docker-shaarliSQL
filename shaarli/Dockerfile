@@ -7,12 +7,12 @@ RUN apt-get update \
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY supervised.conf /etc/supervisor/conf.d/supervised.conf
 
-WORKDIR /var/www/html
+WORKDIR /var/www/html/
 RUN curl -L http://git.gorgones.net/daniel.douat/shaarliSQL/repository/archive.zip > archive.zip && unzip archive.zip \
     && mv shaarliSQL.git shaarli \
     && chown -R www-data:www-data shaarli
 
-VOLUME /var/www/html/
+VOLUME /var/www/html
 
 EXPOSE 80
 
