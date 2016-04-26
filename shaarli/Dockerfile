@@ -11,8 +11,8 @@ WORKDIR /var/www/html/
 RUN curl -L http://git.gorgones.net/daniel.douat/shaarliSQL/repository/archive.zip > archive.zip && unzip archive.zip \
     && mv shaarliSQL.git shaarli \
     && chown -R www-data:www-data shaarli
-RUN sed -i 's/$cookiedir,$_SERVER[\'HTTP_HOST\']/$cookiedir,$SERVER_NAME/g' /shaarli/index.php
-RUN sed -i 's/.$_SERVER[\'HTTP_HOST\'].$serverport/.$SERVER_NAME.$serverport/g' /shaarli/index.php
+RUN sed -i "s/$cookiedir,$_SERVER[\'HTTP_HOST\']/$cookiedir,$SERVER_NAME/g" shaarli/index.php
+RUN sed -i "s/.$_SERVER[\'HTTP_HOST\'].$serverport/.$SERVER_NAME.$serverport/g" shaarli/index.php
 
 VOLUME /var/www/html
 
